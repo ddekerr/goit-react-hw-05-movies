@@ -28,7 +28,8 @@ export async function fetchMoviesByName(query, currentPage = 1) {
     },
   };
 
-  return axios.get('search/movie', config);
+  const response = await axios.get('search/movie', config);
+  return response.data.results;
 }
 
 export async function fetchMovieDetailsById(id) {

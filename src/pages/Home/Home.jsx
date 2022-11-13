@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { fetchTrendingMovies } from 'services/moviesAPI';
 
-import { Main, MovieList, MovieItem, MovieLink } from './Home.styled';
+import { Main } from './Home.styled';
+
+import { MovieList } from 'components/MovieList/MovieList';
 
 export const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -12,15 +14,7 @@ export const Home = () => {
 
   return (
     <Main>
-      <MovieList>
-        {movies.map(({ id, title }) => {
-          return (
-            <MovieItem key={id}>
-              <MovieLink to={`movies/${id}`}>{title}</MovieLink>
-            </MovieItem>
-          );
-        })}
-      </MovieList>
+      <MovieList movies={movies} homepage={true} />
     </Main>
   );
 };
