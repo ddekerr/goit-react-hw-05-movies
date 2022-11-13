@@ -14,7 +14,7 @@ export const AppBar = () => {
             <ListItem key={href}>
               <ListLink to={href}>{text}</ListLink>
             </ListItem>
-          ))}{' '}
+          ))}
         </List>
       </Nav>
     </Header>
