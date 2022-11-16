@@ -6,7 +6,6 @@ const BASE_URL = 'https://api.themoviedb.org/3/';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
 export async function fetchTrendingMovies() {
-  console.log('fetchTrendingMovies');
   const config = {
     baseUrl: BASE_URL,
     params: {
@@ -40,7 +39,8 @@ export async function fetchMovieDetailsById(id) {
     },
   };
 
-  return axios.get(`movie/${id}`, config);
+  const response = await axios.get(`movie/${id}`, config);
+  return response.data;
 }
 
 export async function fetchMovieCreditsById(id) {

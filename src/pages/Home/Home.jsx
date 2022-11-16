@@ -14,7 +14,7 @@ export const Home = () => {
 
   return (
     <Main>
-      <MovieList movies={movies} homepage={true} />
+      {movies.length > 0 && <MovieList movies={movies} homepage={true} />}
     </Main>
   );
 };
