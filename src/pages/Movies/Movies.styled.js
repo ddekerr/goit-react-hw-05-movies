@@ -1,15 +1,19 @@
 import styled from '@emotion/styled';
 
+export const MoviesContainer = styled.main`
+  padding: 20px;
+`;
+
 export const SearchForm = styled.form`
   display: flex;
   justify-content: center;
   gap: 10px;
-  padding: 10px 0;
+  padding-bottom: 10px;
 `;
 
 export const SearchInput = styled.input`
   display: inline-block;
-  width: 80%;
+  width: 100%;
   padding: 5px 10px;
   border: 1px solid #eee;
   border-radius: 5px;
