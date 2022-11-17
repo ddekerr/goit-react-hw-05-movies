@@ -1,11 +1,9 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-// import { useState } from 'react';
 
 import { Home } from 'pages/Home/Home';
 import { Movies } from 'pages/Movies/Movies';
 import { MovieDetails } from 'pages/MovieDetails/MovieDetails';
-import { Error404 } from 'pages/Error404';
 
 import { Layout } from 'components/Layout/Layout';
 import { Cast } from 'components/Cast/Cast';
@@ -22,7 +20,7 @@ export const App = () => {
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
-          <Route path="*" element={<Error404 />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
       <Toaster />
