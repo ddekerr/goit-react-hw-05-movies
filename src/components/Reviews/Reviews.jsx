@@ -11,12 +11,18 @@ export const Reviews = () => {
     fetchMovieReviewsById(movieId).then(setReviews);
   }, [movieId]);
 
+  if (reviews.length === 0) {
+    return <div>There is no reviews yet</div>;
+  }
+
   return (
     <ReviwsList>
-      {reviews.map(({ id }) => (
+      {reviews.map(({ id, author, content }) => (
         <Review key={id}>
-          <p></p>
-          <p></p>
+          <p>
+            <b>{author}</b>
+          </p>
+          <p>{content}</p>
         </Review>
       ))}
     </ReviwsList>

@@ -36,7 +36,7 @@ const MovieDetails = () => {
 
   return (
     <Main>
-      <GoBackLink to={location.state?.from ?? 'movies'}>Go back</GoBackLink>
+      <GoBackLink to={location.state?.from ?? '/movies'}>Go back</GoBackLink>
 
       <MovieContainer>
         <ImageThumb>

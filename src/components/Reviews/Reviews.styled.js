@@ -6,6 +6,6 @@ export const ReviwsList = styled.ul`
 
 export const Review = styled.li`
   :not(:last-of-type) {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 `;

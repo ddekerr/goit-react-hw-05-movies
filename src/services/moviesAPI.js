@@ -63,5 +63,6 @@ export async function fetchMovieReviewsById(id) {
     },
   };
 
-  return axios.get(`movie/${id}/reviews`, config);
+  const response = await axios.get(`movie/${id}/reviews`, config);
+  return response.data.results;
 }
