@@ -1,9 +1,7 @@
 import styled from '@emotion/styled';
 
 export const ReviwsList = styled.ul`
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  margin-top: 10px;
 `;
 
 export const Review = styled.li`

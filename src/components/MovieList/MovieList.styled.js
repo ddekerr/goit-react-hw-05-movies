@@ -1,12 +1,7 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const MovieListContainer = styled.ul`
-  margin: 0;
-  padding: 0;
-
-  list-style: none;
-`;
+export const MovieListContainer = styled.ul``;
 
 export const MovieItem = styled.li`
   :not(:last-of-type) {

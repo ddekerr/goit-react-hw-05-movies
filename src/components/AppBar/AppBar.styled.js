@@ -23,10 +23,6 @@ export const Nav = styled.nav``;
 export const List = styled.ul`
   display: flex;
   gap: 10px;
-  margin: 0;
-  padding: 0;
-
-  list-style: none;
 `;
 export const ListItem = styled.li``;
 export const ListLink = styled(NavLink)`

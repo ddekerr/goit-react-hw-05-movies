@@ -20,11 +20,7 @@ export const ImageThumb = styled.div`
   width: 300px;
 `;
 
-export const Image = styled.img`
-  display: block;
-  max-width: 100%;
-  height: auto;
-`;
+export const Image = styled.img``;
 
 export const Information = styled.div``;
 
