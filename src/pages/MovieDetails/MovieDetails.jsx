@@ -20,7 +20,7 @@ const additional = [
   { id: 2, info: 'reviews' },
 ];
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
@@ -55,7 +55,7 @@ export const MovieDetails = () => {
       <Additional>
         <p>Additional information </p>
         <AdditionalList>
-          {additional.map(({id, info}) => (
+          {additional.map(({ id, info }) => (
             <AdditionalItem key={id}>
               <AdditionalLink to={info}>{info}</AdditionalLink>
             </AdditionalItem>
@@ -67,3 +67,5 @@ export const MovieDetails = () => {
     </Main>
   );
 };
+
+export default MovieDetails;

@@ -12,7 +12,7 @@ import {
 } from './Movies.styled';
 import { MovieList } from 'components/MovieList/MovieList';
 
-export const Movies = () => {
+const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [status, setStatus] = useState(null);
@@ -68,3 +68,5 @@ export const Movies = () => {
     </MoviesContainer>
   );
 };
+
+export default Movies;
