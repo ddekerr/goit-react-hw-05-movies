@@ -51,7 +51,8 @@ export async function fetchMovieCreditsById(id) {
     },
   };
 
-  return axios.get(`movie/${id}/credits`, config);
+  const response = await axios.get(`movie/${id}/credits`, config);
+  return response.data.cast;
 }
 
 export async function fetchMovieReviewsById(id) {
