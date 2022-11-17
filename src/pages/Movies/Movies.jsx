@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Puff } from 'react-loader-spinner';
 import { fetchMoviesByName } from 'services/moviesAPI';
+
 import {
   MoviesContainer,
   SearchForm,
@@ -12,6 +15,7 @@ import { MovieList } from 'components/MovieList/MovieList';
 export const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [status, setStatus] = useState(null);
   const searchQuery = searchParams.get('search');
   const location = useLocation();
 
@@ -19,7 +23,16 @@ export const Movies = () => {
     // ignore first loading
     if (!searchQuery) return;
 
-    fetchMoviesByName(searchQuery).then(setMovies);
+    setStatus('pending');
+    fetchMoviesByName(searchQuery)
+      .then(response => {
+        setMovies(response);
+        setStatus('resolved');
+      })
+      .catch(e => {
+        setStatus('rejected');
+        toast.error(e);
+      });
   }, [searchQuery]);
 
   const handleSubmit = e => {
@@ -46,6 +59,9 @@ export const Movies = () => {
         />
         <SubmitButton type="submit">Search</SubmitButton>
       </SearchForm>
+
+      {status === 'pending' && <Puff />}
+
       {movies.length > 0 && (
         <MovieList movies={movies} homepage={false} location={location} />
       )}
