@@ -5,6 +5,8 @@ export const ActorsList = styled.ul`
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
+
+  list-style: none;
 `;
 
 export const Actor = styled.li`

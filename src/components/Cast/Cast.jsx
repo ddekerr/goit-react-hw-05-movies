@@ -16,22 +16,20 @@ export const Cast = () => {
   }
 
   return (
-    <div>
-      <ActorsList>
-        {actors.map(({ id, character, name, profile_path }) => {
-          // console.log(profile_path);
-          return (
-            <Actor key={id}>
-              <Foto
-                src={'https://image.tmdb.org/t/p/w500' + profile_path}
-                alt={name}
-              />
-              <p>{name}</p>
-              <p>{character}</p>
-            </Actor>
-          );
-        })}
-      </ActorsList>
-    </div>
+    <ActorsList>
+      {actors.map(({ id, character, name, profile_path }) => {
+        // console.log(profile_path);
+        return (
+          <Actor key={id}>
+            <Foto
+              src={'https://image.tmdb.org/t/p/w500' + profile_path}
+              alt={name}
+            />
+            <p>{name}</p>
+            <p>{character}</p>
+          </Actor>
+        );
+      })}
+    </ActorsList>
   );
 };
