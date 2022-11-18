@@ -2,15 +2,15 @@ import { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
-import { Home } from 'pages/Home/Home';
 import { Layout } from 'components/Layout/Layout';
-import { Cast } from 'components/Cast/Cast';
-import { Reviews } from 'components/Reviews/Reviews';
 
+const Home = lazy(() => import('../../pages/Home/Home'));
 const Movies = lazy(() => import('../../pages/Movies/Movies'));
 const MovieDetails = lazy(() =>
   import('../../pages/MovieDetails/MovieDetails')
 );
+const Cast = lazy(() => import('../../components/Cast/Cast'));
+const Reviews = lazy(() => import('../../components/Reviews/Reviews'));
 
 export const App = () => {
   return (
