@@ -8,7 +8,7 @@ import { Main } from './Home.styled';
 
 import { MovieList } from 'components/MovieList/MovieList';
 
-export const Home = () => {
+const Home = () => {
   const [movies, setMovies] = useState([]);
   const [status, setStatus] = useState('pending');
   const location = useLocation();
@@ -35,3 +35,5 @@ export const Home = () => {
     </Main>
   );
 };
+
+export default Home;
