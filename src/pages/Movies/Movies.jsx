@@ -16,12 +16,15 @@ const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [status, setStatus] = useState(null);
+  const [inputValue, setInputValue] = useState('');
   const searchQuery = searchParams.get('search');
   const location = useLocation();
 
   useEffect(() => {
     // ignore first loading
     if (!searchQuery) return;
+
+    setInputValue(searchQuery);
 
     setStatus('pending');
     fetchMoviesByName(searchQuery)
@@ -48,6 +51,10 @@ const Movies = () => {
     setSearchParams({ search: query });
   };
 
+  const handleChange = e => {
+    setInputValue(e.target.value);
+  };
+
   return (
     <MoviesContainer>
       <SearchForm autoComplete="off" onSubmit={handleSubmit}>
@@ -56,6 +63,8 @@ const Movies = () => {
           autoFocus
           placeholder="Search movies"
           name="search"
+          value={inputValue}
+          onChange={handleChange}
         />
         <SubmitButton type="submit">Search</SubmitButton>
       </SearchForm>
