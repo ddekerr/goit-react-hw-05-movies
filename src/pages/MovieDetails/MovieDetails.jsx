@@ -24,6 +24,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const location = useLocation();
+  const goBack = location.state?.from ?? '/movies';
 
   useEffect(() => {
     fetchMovieDetailsById(movieId).then(setMovie);
@@ -36,7 +37,7 @@ const MovieDetails = () => {
 
   return (
     <Main>
-      <GoBackLink to={location.state?.from ?? '/movies'}>Go back</GoBackLink>
+      <GoBackLink to={goBack}>Go back</GoBackLink>
 
       <MovieContainer>
         <ImageThumb>
@@ -57,7 +58,9 @@ const MovieDetails = () => {
         <AdditionalList>
           {additional.map(({ id, info }) => (
             <AdditionalItem key={id}>
-              <AdditionalLink to={info}>{info}</AdditionalLink>
+              <AdditionalLink to={info} state={{ from: goBack }}>
+                {info}
+              </AdditionalLink>
             </AdditionalItem>
           ))}
         </AdditionalList>
